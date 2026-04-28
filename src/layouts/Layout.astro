@@ -1,0 +1,42 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "NY Paid Family Leave Calculator — Estimate Your PFL Benefits | Free Tool",
+  description = "Calculate your New York Paid Family Leave benefit in seconds. Check eligibility, estimate your weekly PFL payment, and see your total payout based on 2024 NY State rates. Free, instant results.",
+} = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <style>
+      /* Critical: prevent layout shift */
+      body { margin: 0; }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
